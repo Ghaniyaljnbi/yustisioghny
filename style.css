@@ -1,0 +1,1332 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --red: #f3263e;
+  --red-dark: #a80e25;
+  --blue: #1675ff;
+  --navy: #07101f;
+  --panel: rgba(14, 27, 48, .82);
+  --line: rgba(255,255,255,.12);
+  --muted: #a8b4c8;
+  --white: #f7f9ff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  color: var(--white);
+  background: var(--navy);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+.web-bg {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(22,117,255,.17), transparent 29%),
+    radial-gradient(circle at 12% 34%, rgba(243,38,62,.12), transparent 27%),
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, auto, 42px 42px, 42px 42px;
+}
+.site-header {
+  width: min(1180px, calc(100% - 48px)); margin: auto; padding: 24px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 800; letter-spacing: .07em; white-space: nowrap; }
+.brand > span:last-child { color: var(--red); }
+.brand-mark { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 9px; background: var(--red); box-shadow: 0 0 22px #f3263e55; font-size: 18px; }
+.nav-links { display: flex; gap: 30px; color: #c5cede; font-size: 12px; font-weight: 600; }
+.nav-links a:hover, .back-top:hover { color: var(--red); }
+.header-cta { font-size: 12px; font-weight: 700; border: 1px solid #ffffff2a; border-radius: 999px; padding: 10px 15px; }
+.header-cta span, .btn span { margin-left: 8px; }
+.section-wrap { width: min(1120px, calc(100% - 48px)); margin: auto; }
+.hero { min-height: 640px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 45px; padding-top: 65px; padding-bottom: 80px; }
+.eyebrow { color: #ff6577; font-size: 10px; letter-spacing: .19em; font-weight: 800; }
+.status-dot, .file-dot { display: inline-block; width: 7px; height: 7px; background: #4de5a4; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px #4de5a4; }
+h1, h2, h3 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; line-height: .98; }
+h1 { font-size: clamp(44px, 6vw, 76px); letter-spacing: -.02em; margin: 24px 0; }
+h1 span, h2 span { color: var(--red); }
+.hero-description { max-width: 510px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+.hero-description strong { color: white; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 7px; padding: 13px 19px; font-size: 12px; font-weight: 800; transition: transform .2s, box-shadow .2s; }
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background: var(--red); box-shadow: 0 8px 25px #f3263e35; }
+.btn-primary:hover { box-shadow: 0 10px 32px #f3263e65; }
+.btn-ghost { border: 1px solid var(--line); background: #ffffff06; }
+.hero-stats { display: flex; gap: 36px; margin-top: 45px; }
+.hero-stats div { display: flex; flex-direction: column; }
+.hero-stats strong { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; color: white; }
+.hero-stats span { color: var(--muted); font-size: 10px; }
+.hero-art { min-height: 460px; display: grid; place-items: center; position: relative; }
+.orbit { position: absolute; border: 1px solid #f3263e3d; border-radius: 50%; transform: rotate(-25deg); }
+.orbit-one { width: 390px; height: 270px; }
+.orbit-two { width: 300px; height: 410px; border-color: #1675ff50; transform: rotate(35deg); }
+.spider-emblem { position: absolute; width: 210px; height: 210px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle, #f3263e30, #f3263e00 68%); border: 1px solid #f3263e2e; }
+.spider-emblem span { font-size: 135px; color: #f3263e; text-shadow: 0 0 50px #f3263e66; opacity: .22; }
+.profile-card { z-index: 2; width: 250px; padding: 19px; border: 1px solid #ffffff26; border-radius: 15px; background: linear-gradient(145deg, #172943eF, #091323ed); box-shadow: 0 25px 70px #0008; transform: rotate(3deg); backdrop-filter: blur(12px); }
+.profile-top { display: flex; justify-content: space-between; align-items: center; color: #9baac0; font-size: 8px; letter-spacing: .16em; }
+.avatar { width: 100px; height: 100px; margin: 23px auto 16px; display: grid; place-items: center; border-radius: 50%; border: 3px solid var(--red); background: radial-gradient(circle at 30% 20%, #f85b6b, #99152a 55%, #15294c 56%); font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 800; box-shadow: 0 0 30px #f3263e35; }
+.profile-name { text-align: center; font-size: 15px; font-weight: 800; letter-spacing: .07em; }
+.profile-role { text-align: center; color: #93a5bf; font-size: 8px; letter-spacing: .1em; margin-top: 3px; }
+.profile-line { display: flex; justify-content: space-between; border-top: 1px solid var(--line); margin-top: 20px; padding-top: 12px; font-size: 8px; color: #91a0b5; }
+.profile-line strong { color: #4de5a4; font-size: 8px; }
+.floating-tag { position: absolute; z-index: 3; padding: 10px 13px; border-radius: 7px; background: #0b1729ed; border: 1px solid #ffffff20; box-shadow: 0 12px 30px #0005; font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+.tag-top { top: 60px; right: 0; color: #d8e1ef; transform: rotate(5deg); }
+.tag-top span { color: var(--red); margin-left: 8px; }
+.tag-bottom { bottom: 48px; left: 0; color: #b7c4d8; transform: rotate(-4deg); }
+.tag-icon { color: #4d9bff; margin-right: 8px; font-size: 14px; }
+.about, .projects { padding-top: 65px; padding-bottom: 65px; }
+.section-heading { margin-bottom: 30px; }
+.section-heading h2, .contact h2 { font-size: clamp(38px, 5vw, 54px); margin-top: 12px; }
+.about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; }
+.panel, .info-card, .project-card { border: 1px solid var(--line); background: var(--panel); border-radius: 13px; }
+.about-text { padding: 28px; color: #b8c4d7; font-size: 13px; line-height: 1.9; }
+.quote { margin-top: 22px; padding-left: 15px; border-left: 3px solid var(--red); color: white; font-weight: 700; font-style: italic; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.info-card { padding: 20px; display: flex; flex-direction: column; align-items: flex-start; }
+.info-icon { color: var(--red); font-size: 23px; margin-bottom: 12px; }
+.info-label { color: #8d9db5; font-size: 9px; letter-spacing: .12em; margin-bottom: 5px; }
+.info-card strong { font-size: 12px; }
+.heading-row { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+.heading-note { max-width: 250px; color: var(--muted); font-size: 12px; padding-bottom: 5px; }
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+.project-card { overflow: hidden; transition: transform .25s, border-color .25s; }
+.project-card:hover { transform: translateY(-6px); border-color: #f3263e77; }
+.project-visual { min-height: 175px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.project-visual::before, .project-visual::after { content: ""; position: absolute; border: 1px solid #ffffff30; border-radius: 50%; width: 220px; height: 220px; }
+.project-visual::after { width: 145px; height: 145px; }
+.visual-red { background: radial-gradient(circle at 50% 45%, #ff3c52, #7e1023 65%, #290b18); }
+.visual-blue { background: radial-gradient(circle at 50% 45%, #287fff, #10376d 65%, #09172d); }
+.visual-dark { background: radial-gradient(circle at 50% 45%, #273b5b, #111c31 65%, #080e19); }
+.visual-number { position: absolute; top: 13px; left: 15px; font-size: 10px; color: #ffffffb8; }
+.visual-symbol { font-size: 64px; font-weight: 800; text-shadow: 0 0 25px #ffffff40; }
+.visual-caption { position: absolute; bottom: 12px; right: 14px; font-size: 8px; letter-spacing: .17em; color: #ffffffb8; }
+.project-body { padding: 20px; }
+.project-type { color: #ff6577; font-size: 9px; letter-spacing: .13em; font-weight: 800; }
+.project-body h3 { font-size: 24px; margin: 8px 0; }
+.project-body > p:not(.project-type) { color: var(--muted); font-size: 11px; line-height: 1.8; min-height: 60px; }
+.project-link { display: inline-block; margin-top: 15px; font-size: 11px; font-weight: 800; }
+.project-link span { color: var(--red); margin-left: 5px; }
+.contact { padding-top: 30px; padding-bottom: 75px; }
+.contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: clamp(25px, 5vw, 48px); border: 1px solid #f3263e50; border-radius: 17px; background: radial-gradient(circle at 85% 20%, #1675ff22, transparent 40%), linear-gradient(110deg, #251322, #0c1b31); }
+.contact-description { color: var(--muted); font-size: 12px; max-width: 420px; margin-top: 15px; }
+.site-footer { width: min(1120px, calc(100% - 48px)); margin: auto; border-top: 1px solid var(--line); padding: 22px 0 30px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+.site-footer p, .back-top { color: #8e9db3; font-size: 10px; }
+.back-top { white-space: nowrap; }
+
+@media (max-width: 800px) {
+  .site-header { flex-wrap: wrap; width: calc(100% - 32px); }
+  .nav-links { order: 3; width: 100%; justify-content: center; gap: 22px; padding-top: 8px; }
+  .header-cta { margin-left: auto; }
+  .section-wrap, .site-footer { width: calc(100% - 32px); }
+  .hero { grid-template-columns: 1fr; gap: 15px; padding-top: 60px; }
+  .hero-art { min-height: 420px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .project-grid { grid-template-columns: 1fr 1fr; }
+  .project-card:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .site-header { padding: 17px 0; }
+  .brand { font-size: 11px; }
+  .brand-mark { width: 25px; height: 25px; }
+  .header-cta { font-size: 10px; padding: 8px 10px; }
+  .nav-links { gap: 17px; font-size: 11px; }
+  .hero { padding-top: 45px; padding-bottom: 45px; }
+  h1 { font-size: 47px; }
+  .hero-description { font-size: 13px; }
+  .hero-stats { gap: 25px; }
+  .hero-art { min-height: 365px; transform: scale(.92); margin: -5px -10px; }
+  .orbit-one { width: 320px; height: 230px; }
+  .orbit-two { width: 255px; height: 350px; }
+  .profile-card { width: 225px; }
+  .tag-top { right: -2px; top: 35px; }
+  .tag-bottom { left: -3px; bottom: 27px; }
+  .about, .projects { padding-top: 40px; padding-bottom: 40px; }
+  .info-grid { gap: 9px; }
+  .info-card { padding: 15px; }
+  .heading-row { display: block; }
+  .heading-note { margin-top: 12px; }
+  .project-grid { grid-template-columns: 1fr; }
+  .project-card:last-child { grid-column: auto; }
+  .project-visual { min-height: 155px; }
+  .contact-panel { align-items: flex-start; flex-direction: column; }
+  .site-footer { flex-direction: column; text-align: center; }
+}
+/* ===== SPIDER EFFECTS: TAMBAHAN CSS ===== */
+
+/* Pastikan konten tetap berada di atas efek partikel */
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Jaring laba-laba bercahaya pada area hero */
+.hero-art {
+  isolation: isolate;
+}
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 2%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.38;
+  background:
+    repeating-conic-gradient(
+      from 8deg at 50% 50%,
+      transparent 0deg 14deg,
+      rgba(243, 38, 62, 0.45) 14.4deg 14.8deg,
+      transparent 15deg 30deg
+    );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center, black 5%, transparent 72%
+  );
+  mask-image: radial-gradient(
+    ellipse at center, black 5%, transparent 72%
+  );
+  animation: spider-web-glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes spider-web-glow {
+  from {
+    opacity: 0.16;
+    filter: drop-shadow(0 0 2px #f3263e);
+  }
+  to {
+    opacity: 0.48;
+    filter: drop-shadow(0 0 8px #1675ff);
+  }
+}
+
+/* Kartu profil 3D */
+.profile-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition:
+    transform 180ms ease-out,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+}
+
+.profile-card:hover {
+  border-color: rgba(243, 38, 62, 0.75);
+  box-shadow:
+    0 25px 70px #0008,
+    0 0 25px rgba(243, 38, 62, 0.18);
+}
+
+/* Tombol neon interaktif */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.23) 50%,
+    transparent 80%
+  );
+  transform: translateX(-130%);
+  transition: transform 550ms ease;
+}
+
+.btn:hover::after {
+  transform: translateX(130%);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 0 12px rgba(243, 38, 62, 0.7),
+    0 0 32px rgba(243, 38, 62, 0.3);
+}
+
+.btn-ghost:hover {
+  border-color: #1675ff;
+  box-shadow: 0 0 22px rgba(22, 117, 255, 0.25);
+}
+
+/* Animasi muncul saat scroll */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 650ms ease,
+    transform 650ms ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Canvas partikel dibuat melalui JavaScript */
+.spider-particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Hormati pengaturan pengurangan animasi */
+@media (prefers-reduced-motion: reduce) {
+  .hero-art::before {
+    animation: none;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .profile-card,
+  .btn {
+    transition: none;
+  }
+}
+/* FOTO PROFIL */
+img.avatar {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* TOMBOL KONTAK */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-links a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 22px rgba(243, 38, 62, 0.4);
+}
+/* =================================
+   SPIDER-MAN ANIMATION EFFECTS
+   Tambahkan di akhir style.css
+================================= */
+
+/* 1. Cahaya merah-biru pada background */
+body {
+  background-size: 100% 100%;
+}
+
+.web-bg {
+  animation: spiderBackgroundGlow 9s ease-in-out infinite alternate;
+}
+
+@keyframes spiderBackgroundGlow {
+  0% {
+    filter: hue-rotate(0deg) brightness(0.95);
+  }
+  100% {
+    filter: hue-rotate(12deg) brightness(1.12);
+  }
+}
+
+/* 2. Kartu profil melayang */
+.profile-card {
+  animation: spiderFloat 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes spiderFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+/* 3. Cahaya berdenyut pada foto profil */
+img.avatar {
+  animation: avatarPulse 3s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px #f3263e30;
+  }
+  50% {
+    box-shadow:
+      0 0 18px #f3263e90,
+      0 0 30px #1675ff55;
+  }
+}
+
+/* 4. Tombol dengan efek neon */
+.btn-primary {
+  animation: buttonGlow 3s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px #f3263e30;
+  }
+  50% {
+    box-shadow:
+      0 0 15px #f3263e75,
+      0 0 28px #f3263e30;
+  }
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.025);
+}
+
+/* 5. Kartu proyek terasa lebih hidup */
+.project-card {
+  transition:
+    transform 350ms ease,
+    box-shadow 350ms ease,
+    border-color 350ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: #f3263e;
+  box-shadow:
+    0 12px 30px #0005,
+    0 0 20px #f3263e20;
+}
+
+.project-visual .visual-symbol {
+  transition: transform 350ms ease, text-shadow 350ms ease;
+}
+
+.project-card:hover .visual-symbol {
+  transform: scale(1.15) rotate(-6deg);
+  text-shadow:
+    0 0 12px #fff,
+    0 0 30px #f3263e;
+}
+
+/* 6. Garis dekorasi hero bergerak lembut */
+.orbit-one {
+  animation: orbitSpin 22s linear infinite;
+}
+
+.orbit-two {
+  animation: orbitSpin 30s linear infinite reverse;
+}
+
+@keyframes orbitSpin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* 7. Animasi masuk untuk judul dan deskripsi */
+.hero-copy > * {
+  animation: spiderEnter 800ms ease both;
+}
+
+.hero-copy > *:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.hero-copy > *:nth-child(3) {
+  animation-delay: 220ms;
+}
+
+.hero-copy > *:nth-child(4) {
+  animation-delay: 320ms;
+}
+
+.hero-copy > *:nth-child(5) {
+  animation-delay: 420ms;
+}
+
+@keyframes spiderEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 8. Aksesibilitas: kurangi animasi jika diminta perangkat */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* TEST ANIMASI SPIDER-MAN */
+.profile-card {
+  animation: spiderFloatTest 3s ease-in-out infinite !important;
+}
+
+@keyframes spiderFloatTest {
+  0%, 100% {
+    translate: 0 0;
+    box-shadow: 0 0 12px rgba(243, 38, 62, 0.2);
+  }
+  50% {
+    translate: 0 -15px;
+    box-shadow:
+      0 0 25px rgba(243, 38, 62, 0.7),
+      0 0 35px rgba(22, 117, 255, 0.3);
+  }
+}
+/* =====================================
+   SPIDER-MAN: EPIC BACKGROUND EFFECTS
+===================================== */
+
+/* Background dasar dengan cahaya merah dan biru */
+body {
+  background-color: #050b16;
+  background-image:
+    radial-gradient(
+      ellipse at 15% 25%,
+      rgba(243, 38, 62, 0.16),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 85% 35%,
+      rgba(22, 117, 255, 0.17),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(243, 38, 62, 0.08),
+      transparent 45%
+    );
+  background-attachment: fixed;
+}
+
+/* Cahaya berwarna yang bergerak di belakang konten */
+.web-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(243, 38, 62, 0.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 65%,
+      rgba(22, 117, 255, 0.14),
+      transparent 30%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(5, 11, 22, 0.1),
+      rgba(10, 20, 38, 0.35)
+    );
+  animation: energyShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes energyShift {
+  0% {
+    filter: hue-rotate(0deg) brightness(0.9);
+    transform: scale(1);
+  }
+
+  50% {
+    filter: hue-rotate(12deg) brightness(1.15);
+  }
+
+  100% {
+    filter: hue-rotate(-10deg) brightness(1);
+    transform: scale(1.04);
+  }
+}
+
+/* Garis grid futuristik */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(22, 117, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(243, 38, 62, 0.07) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+}
+
+/* Garis energi diagonal */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    120deg,
+    transparent 0px,
+    transparent 120px,
+    rgba(22, 117, 255, 0.06) 121px,
+    transparent 123px,
+    transparent 220px,
+    rgba(243, 38, 62, 0.05) 222px,
+    transparent 224px
+  );
+  animation: energyRain 24s linear infinite;
+}
+
+@keyframes energyRain {
+  from {
+    transform: translate3d(-3%, -2%, 0);
+  }
+
+  to {
+    transform: translate3d(3%, 2%, 0);
+  }
+}
+
+/* Konten tetap di depan efek background */
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Kurangi gerakan untuk pengguna yang memilih
+   pengaturan minim animasi */
+@media (prefers-reduced-motion: reduce) {
+  .web-bg,
+  body::after {
+    animation: none;
+  }
+}
+/* ===== SPIDER-MAN RED ALERT BACKGROUND ===== */
+
+body {
+  background-color: #030610;
+}
+
+/* Aura merah-biru bergerak */
+.web-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 12% 25%,
+      rgba(255, 0, 42, 0.42),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 90% 30%,
+      rgba(0, 105, 255, 0.40),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 55% 90%,
+      rgba(255, 0, 55, 0.22),
+      transparent 42%
+    );
+  animation: redAlertAura 5s ease-in-out infinite alternate;
+}
+
+@keyframes redAlertAura {
+  0% {
+    filter: brightness(.8) saturate(1.1);
+    transform: scale(1);
+  }
+  100% {
+    filter: brightness(1.45) saturate(1.5);
+    transform: scale(1.06);
+  }
+}
+
+/* Laser merah dan biru melintas */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -100%;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 145px,
+    rgba(255, 20, 55, .45) 147px,
+    rgba(255, 20, 55, .08) 149px,
+    transparent 153px 270px,
+    rgba(0, 130, 255, .42) 272px,
+    transparent 276px 400px
+  );
+  animation: laserSweep 9s linear infinite;
+}
+
+@keyframes laserSweep {
+  from { transform: translate(-8%, -5%); }
+  to   { transform: translate(8%, 5%); }
+}
+
+/* Lingkaran energi di area hero */
+.hero-art::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 30, 65, .65);
+  box-shadow:
+    0 0 15px #ff173f,
+    inset 0 0 25px rgba(255, 20, 55, .25),
+    0 0 55px rgba(0, 110, 255, .45);
+  pointer-events: none;
+  z-index: -1;
+  animation: energyPulse 3s ease-in-out infinite;
+}
+
+@keyframes energyPulse {
+  0%, 100% {
+    opacity: .35;
+    scale: .88;
+    box-shadow: 0 0 12px #ff173f;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.08;
+    box-shadow:
+      0 0 25px #ff173f,
+      0 0 65px #1675ff;
+  }
+}
+
+/* Kilatan energi singkat */
+.hero {
+  animation: heroEnergy 7s infinite;
+}
+
+@keyframes heroEnergy {
+  0%, 88%, 92%, 100% {
+    filter: brightness(1);
+  }
+  89% {
+    filter: brightness(1.22);
+  }
+  90% {
+    filter: brightness(.94);
+  }
+  91% {
+    filter: brightness(1.15);
+  }
+}
+
+/* Judul merah menyala */
+h1 span {
+  text-shadow:
+    0 0 8px rgba(255, 25, 55, .65),
+    0 0 28px rgba(255, 25, 55, .35);
+}
+
+/* Pastikan konten berada di atas dekorasi */
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Aksesibilitas */
+@media (prefers-reduced-motion: reduce) {
+  .web-bg,
+  body::before,
+  .hero,
+  .hero-art::after {
+    animation: none;
+  }
+}
+/* ===== SPIDER-MAN CIRCUIT CHIP ===== */
+
+.circuit-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 90px 20px;
+  text-align: center;
+  color: #f7f8ff;
+  background:
+    radial-gradient(ellipse at 50% 50%,
+      rgba(65, 36, 255, .16), transparent 55%),
+    linear-gradient(180deg, rgba(3, 7, 23, .35), #06091b);
+}
+
+.circuit-label {
+  color: #ff425e;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.circuit-section h2 {
+  margin: 12px 0;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 900;
+}
+
+.circuit-section h2 span {
+  color: #7771ff;
+  text-shadow: 0 0 22px #5146ff90;
+}
+
+.circuit-description {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #b9c1dc;
+  line-height: 1.8;
+}
+
+.circuit-board {
+  position: relative;
+  width: min(100%, 650px);
+  aspect-ratio: 600 / 360;
+  margin: 35px auto 10px;
+  isolation: isolate;
+}
+
+.circuit-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.circuit-traces {
+  fill: none;
+  stroke: #4938d8;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px #624cff);
+  stroke-dasharray: 12 5;
+  animation: circuitFlow 1.5s linear infinite;
+}
+
+.circuit-nodes {
+  fill: #080c23;
+  stroke: #806bff;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 7px #674cff);
+  animation: nodePulse 2s ease-in-out infinite alternate;
+}
+
+.circuit-tech {
+  position: absolute;
+  z-index: 2;
+  color: #dce1ff;
+  font-size: clamp(8px, 1.7vw, 11px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 0 9px #6d58ff;
+}
+
+.tech-html { left: 13%; top: 17%; }
+.tech-css  { right: 13%; top: 17%; }
+.tech-js   { left: 5%; top: 46%; }
+.tech-php  { right: 5%; top: 46%; }
+.tech-sql  { left: 13%; bottom: 16%; }
+.tech-api  { right: 13%; bottom: 16%; }
+
+/* Chip utama */
+.main-chip {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: clamp(88px, 19vw, 116px);
+  aspect-ratio: 1;
+  padding: 12px 5px;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 2px solid #7058ff;
+  border-radius: 19px;
+  color: #fff;
+  background:
+    linear-gradient(145deg, #15183b, #080b1b);
+  box-shadow:
+    0 0 12px #6b4dff,
+    0 0 30px #4938d880,
+    inset 0 0 18px #5142ff30;
+  cursor: pointer;
+  transition: box-shadow .3s, border-color .3s;
+}
+
+.chip-symbol {
+  font-size: clamp(21px, 4vw, 30px);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 12px #9d8cff;
+}
+
+.main-chip strong {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.main-chip small {
+  color: #9da7ff;
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+
+.chip-light {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff334f;
+  box-shadow: 0 0 12px #ff334f;
+  animation: chipBlink .9s infinite alternate;
+}
+
+.main-chip:hover,
+.main-chip.is-active {
+  border-color: #ff3858;
+  box-shadow:
+    0 0 16px #ff234f,
+    0 0 38px #6045ff,
+    inset 0 0 25px #ff234f30;
+}
+
+.circuit-hint {
+  margin-top: 25px;
+  color: #a8aed0;
+  font-size: 14px;
+}
+
+.circuit-section.is-active .circuit-traces {
+  stroke: #ff3458;
+  filter: drop-shadow(0 0 7px #ff234f);
+  stroke-width: 3;
+}
+
+.circuit-section.is-active .circuit-nodes {
+  stroke: #ff4564;
+  fill: #ff234f;
+}
+
+.circuit-section.is-active .chip-light {
+  background: #64ffbd;
+  box-shadow: 0 0 14px #64ffbd;
+}
+
+.circuit-section.is-active .main-chip {
+  animation: chipPower 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes circuitFlow {
+  to { stroke-dashoffset: -34; }
+}
+
+@keyframes nodePulse {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+
+@keyframes chipBlink {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
+
+@keyframes chipPower {
+  from {
+    box-shadow: 0 0 15px #ff234f, 0 0 25px #624cff;
+  }
+  to {
+    box-shadow: 0 0 30px #ff234f, 0 0 55px #624cff;
+  }
+}
+
+@media (max-width: 480px) {
+  .circuit-section {
+    padding: 65px 12px;
+  }
+
+  .circuit-description {
+    font-size: 14px;
+  }
+
+  .circuit-board {
+    margin-top: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circuit-traces,
+  .circuit-nodes,
+  .chip-light,
+  .main-chip.is-active {
+    animation: none !important;
+  }
+}
+
+  /* ===== SPIDER TECH CHIP ANIMATION ===== */
+.tech-animation {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  margin: 40px 0;
+  text-align: center;
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at center, #172b91 0%, #080b25 65%, #03040d 100%);
+  border: 1px solid rgba(80, 100, 255, 0.5);
+  box-shadow: 0 0 35px rgba(40, 70, 255, 0.3);
+  color: white;
+
+
+.tech-kicker {
+  color: #ff405d;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tech-animation h2 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+}
+
+.tech-animation h2 span {
+  color: #ff304f;
+  text-shadow: 0 0 18px #ff304f;
+}
+
+.tech-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background-image:
+    linear-gradient(rgba(65, 95, 255, .12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(65, 95, 255, .12) 1px, transparent 1px);
+  background-size: 35px 35px;
+}
+
+.tech-chip {
+  width: 190px;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 2px solid #7755ff;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #20245a, #080b20);
+  box-shadow:
+    0 0 12px #6545ff,
+    0 0 35px #4535ff,
+    inset 0 0 25px rgba(90, 70, 255, .3);
+  animation: chipFloat 3s ease-in-out infinite,
+             chipGlow 2s ease-in-out infinite alternate;
+  transition: transform .3s;
+}
+
+.tech-chip:hover {
+  transform: scale(1.1) rotateY(12deg);
+}
+
+.chip-icon {
+  color: #ff3d60;
+  font-size: 36px;
+  text-shadow: 0 0 18px #ff304f;
+}
+
+.tech-chip strong {
+  color: white;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.tech-chip small {
+  color: #7cecff;
+  letter-spacing: 3px;
+  font-size: 10px;
+}
+
+.tech-instruction {
+  color: #a9baff;
+  letter-spacing: 1px;
+}
+
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes chipGlow {
+  from {
+    box-shadow: 0 0 12px #6545ff, 0 0 25px #4535ff;
+  }
+  to {
+    box-shadow: 0 0 22px #8d70ff, 0 0 55px #315dff;
+  }
+}
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-chip {
+    animation: none;
+  }
+}
+/* ===== SPIDER TECH: NEON ANIMATION ===== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(0, 110, 255, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(255, 0, 110, 0.22),
+      transparent 38%
+    );
+}
+
+/* Neon grid bergerak */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(90, 110, 255, 0.12) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(90, 110, 255, 0.12) 1px,
+      transparent 1px
+    );
+  background-size: 42px 42px;
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 95%
+  );
+  animation: spiderGrid 18s linear infinite;
+}
+
+/* Cahaya neon melintas */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -65%;
+  width: 35%;
+  height: 200%;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(70, 130, 255, 0.13),
+    rgba(255, 50, 160, 0.2),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: spiderScan 8s ease-in-out infinite;
+}
+
+/* Kartu profil: efek 3D dan glow */
+.profile-card {
+  transform-style: preserve-3d;
+  border: 1px solid rgba(120, 140, 255, 0.35);
+  box-shadow:
+    0 0 25px rgba(60, 90, 255, 0.18),
+    inset 0 0 22px rgba(90, 70, 255, 0.08);
+  animation: chipFloat 5s ease-in-out infinite;
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.profile-card:hover {
+  border-color: rgba(100, 210, 255, 0.9);
+  box-shadow:
+    0 0 20px rgba(60, 130, 255, 0.45),
+    0 0 55px rgba(160, 50, 255, 0.25);
+}
+
+/* Chip / kartu teknologi */
+.tech-chip,
+.chip,
+.circuit-chip {
+  position: relative;
+  border: 1px solid rgba(130, 100, 255, 0.8);
+  box-shadow:
+    0 0 12px rgba(90, 70, 255, 0.55),
+    inset 0 0 16px rgba(80, 120, 255, 0.16);
+  animation: chipPulse 2.8s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.tech-chip:hover,
+.chip:hover,
+.circuit-chip:hover {
+  transform: translateY(-6px) scale(1.04);
+}
+
+/* Animasi background */
+@keyframes spiderGrid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 42px 42px;
+  }
+}
+
+@keyframes spiderScan {
+  0%, 100% {
+    left: -65%;
+    opacity: 0;
+  }
+  15%, 75% {
+    opacity: 1;
+  }
+  55% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+@keyframes chipFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes chipPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(90, 70, 255, 0.4),
+      inset 0 0 12px rgba(80, 120, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 24px rgba(90, 100, 255, 0.75),
+      0 0 38px rgba(180, 40, 255, 0.25),
+      inset 0 0 20px rgba(80, 120, 255, 0.2);
+  }
+}
+
+/* Ramah untuk pengguna yang mengurangi animasi */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .profile-card,
+  .tech-chip,
+  .chip,
+  .circuit-chip {
+    animation: none;
+  }
+}
+/* MINI SPACE MUSIC BUTTON */
+.music-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(80, 170, 255, 0.7);
+    background: rgba(15, 25, 45, 0.9);
+    color: #75caff;
+    font-size: 17px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+    background: #1479c9;
+    color: white;
+    box-shadow: 0 0 20px #1479c9;
+}
